@@ -1,60 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
-import { useEffect } from 'react';
-import { ContextHolder } from '@frontegg/rest-api';
-import { AdminPortal, useAuth, useLoginWithRedirect } from "@frontegg/react";
+import React, { useEffect } from "react";
+import { useAuth, useLoginWithRedirect } from "@frontegg/react";
+import Navbar from "./components/Navbar";
+import CustomerTable from "./components/CustomerTable";
+import AuthContext from "./context/auth-context";
+import "./App.css";
 
 function App() {
   const { user, isAuthenticated } = useAuth();
   const loginWithRedirect = useLoginWithRedirect();
-
-  //Uncomment this to redirect to login automatically
   useEffect(() => {
     if (!isAuthenticated) {
-  loginWithRedirect();
+      loginWithRedirect();
     }
   }, [isAuthenticated, loginWithRedirect]);
 
-  const logout = () => {
-    const baseUrl = ContextHolder.getContext().baseUrl;
-    window.location.href = `${baseUrl}/oauth/logout?post_logout_redirect_uri=${window.location}`;
-  };
-
-  // admin user
-  const handleClick = () => {
-    AdminPortal.show()
-  }
   return (
-    <div className="App">
-      {isAuthenticated ? (
-        <div className='card'>
-          <div>
-            <img src={user?.profilePictureUrl} alt={user?.name} />
-          </div>
-          <div className="detail">
-            <span className="heading">Name: {user?.name}</span>
-            <span className="heading">Email: {user?.email}</span>
-          </div>
-          <div>
-            <button
-            onClick={() => logout()}
-            className="button">Click to logout</button>
-            <button
-            onClick={() => handleClick()}
-            className="button">View full Profile</button>
-          </div>
-        </div>
-      ): 
-      (
-        <div>
-        <button 
-        onClick={() => loginWithRedirect()}
-        className="button">
-        Click me to login
-        </button>
-        </div>
-      ) }
-    </div>
+    <AuthContext.Provider
+      value={{
+        isLoggedIn: isAuthenticated,
+        customer: user,
+      }}>
+      <div className='App'>
+        <Navbar />
+        <CustomerTable />
+      </div>
+    </AuthContext.Provider>
   );
 }
 
