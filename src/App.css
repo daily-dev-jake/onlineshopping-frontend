@@ -2,14 +2,26 @@
   background-color: #333;
   overflow: hidden;
 }
-.user-profile {
+.user-profile{
   display: flex;
   flex-direction: row;
+  align-content: stretch;
+}
+.user-profile h1{
+  justify-content: left;
+
+}
+.detail {
+  
   justify-content: right;
   align-items: center;
   padding: 16px;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.user-profile img {
+  width: 3rem;
+  border-radius: 3rem;
 }
 .button {
   padding: 10px;
@@ -25,6 +37,6 @@
   margin-right: 20px;
 }
 
-.heading{
+.heading {
   color: #fff;
 }
