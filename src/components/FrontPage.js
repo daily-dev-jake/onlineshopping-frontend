@@ -116,12 +116,12 @@ const CustomerTable = ({ portno }) => {
         <ImgMediaCard order={largestOrder} />
       </div>
       <div>
-        <h2>Largest order for {proper(user?.name)}</h2>
+        <h2>Best Selling phone in the shop</h2>
         {bestSellingItem.map((products) => (
-            <li key={products.id}>
-              Phone Model: {products.name}, price: {products.price}
-            </li>
-          ))}
+          <li key={products.id}>
+            Phone Model: {products.name}, price: {products.price}
+          </li>
+        ))}
       </div>
       <div className='Products-list'>
         <h2>Phones for sale</h2>
@@ -134,7 +134,6 @@ const CustomerTable = ({ portno }) => {
           ))}
         </ul>
       </div>
-      
     </div>
   );
 };
