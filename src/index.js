@@ -1,18 +1,18 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import "./index.css";
-import App from "./App";
-import { FronteggProvider } from "@frontegg/react";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+import './index.css';
+
+import { FronteggProvider } from '@frontegg/react';
 
 const contextOptions = {
-  baseUrl: "https://app-hn6idoci7con.frontegg.com",
-  clientId: "8eca6a1f-e969-4a9f-8085-eaddbd77ae06",
+  baseUrl: 'https://app-hn6idoci7con.frontegg.com',
+  clientId: 'c86f9f73-4b73-4f1a-8f58-df87e7ab8dee'
 };
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
-  <FronteggProvider contextOptions={contextOptions} hostedLoginBox={true}>
-    <App />
-  </FronteggProvider>
+ReactDOM.render(
+    <FronteggProvider contextOptions={contextOptions} hostedLoginBox={true}>
+        <App />
+    </FronteggProvider>,
+    document.getElementById('root')
 );
-
