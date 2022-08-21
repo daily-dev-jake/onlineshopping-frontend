@@ -14,11 +14,11 @@ export default function StickyHeadTable({ customer_orders }) {
 
   const columns = [
     { field: "id", headerName: "ID", width: 170 },
-    { field: "name", headerName: "Phone Model", width: 100 },
+    { field: "name", headerName: "Phone Model", width: 220 },
     {
       field: "quantity",
       headerName: "Quantity",
-      width: 170,
+      width: 70,
     },
     {
       field: "shipping_date",

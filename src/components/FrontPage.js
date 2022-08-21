@@ -127,7 +127,7 @@ const CustomerTable = ({ portno }) => {
         <ul>
           {productList.map((products) => (
             <li key={products.id}>
-              Phone Model: {products.name}, price: {products.price}
+              Phone Model: {products.name}, Price: ${products.price}
               <button>Purchase</button>
             </li>
           ))}

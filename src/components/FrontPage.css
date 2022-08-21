@@ -2,7 +2,10 @@
     overflow: auto;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    width: 100%;
+    min-width: max-content;
+}
+
+.Products-list button{
+    margin-left: 1rem;
 }
