@@ -43,7 +43,6 @@ const CustomerTable = ({ portno }) => {
 
   useEffect(() => {
     getLargestBuyHandler();
-    console.log(largestOrder);
   }, []);
 
   const queryCustomerOrders = () => {
@@ -73,7 +72,7 @@ const CustomerTable = ({ portno }) => {
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
-        setLargestOrder(data);
+        setLargestOrder(data[0]);
       })
       .catch((error) => console.log("error", error));
   };
@@ -119,7 +118,7 @@ const CustomerTable = ({ portno }) => {
         <h2>Best Selling phone in the shop</h2>
         {bestSellingItem.map((products) => (
           <li key={products.id}>
-            Phone Model: {products.name}, price: {products.price}
+            Phone Model: {products.name}, Price: ${products.price}
           </li>
         ))}
       </div>
